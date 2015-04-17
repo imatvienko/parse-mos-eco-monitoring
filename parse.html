@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+  <script src="http://yandex.st/jquery/2.0.3/jquery.js"></script>
+  <script src="http://yastatic.net/underscore/1.6.0/underscore.js"></script>
+  <script src="loader.js"></script>
+  <script>
+    $(function () {
+
+      $("#btn").click(function () {
+        var factor = parseInt($("#factors").val());
+        var csv = Loader.createCsv(factor);
+        $("#res").text(csv);
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <button id="btn">Create CSV</button>
+  <select id="factors">
+    <option value="1">Среднее значение (в мг / куб. м)</option>
+    <option value="2">Среднее значение (в ПДК с.с.)</option>
+    <option value="3">Максимальное разовое значение (в мг / куб. м)</option>
+    <option value="4">Максимальное разовое значение (в ПДК м.р.)</option>
+    <option value="5">Максимальное разовое значение — дата и время</option>
+    <option value="6">Максимальное среднесуточное значение (в мг / куб. м)</option>
+    <option value="7">Максимальное среднесуточное значение (в ПДК с.с.)</option>
+    <option value="8">Максимальное среднесуточное значение — дата</option>
+    <option value="9">Превышение ПДК м.р. (часы)</option>
+    <option value="10">Наибольшая длительность непрерывного превышения ПДК м.р. (часы)</option>
+    <option value="11">Превышение ПДК с.с. (сутки)</option>
+    <option value="12">Наибольшая длительность непрерывного превышения ПДК с.с. (сутки)</option>
+  </select>
+  <br>
+  <textarea id="res" style="width: 100%; height: 300px;"></textarea>
+</body>
+</html>
